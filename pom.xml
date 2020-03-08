@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>task2</groupId>
-	<artifactId>task2</artifactId>
+	<artifactId>data-collector</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>task2</name>
+	<name>data-collector</name>
 	<description>Demo task</description>
 
 	<properties>

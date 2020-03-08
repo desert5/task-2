@@ -1,13 +1,13 @@
-package task2.task2;
+package task2.data.collector;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Task2Application {
+public class DataCollectorApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Task2Application.class, args);
+		SpringApplication.run(DataCollectorApplication.class, args);
 	}
 
 }

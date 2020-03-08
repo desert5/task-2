@@ -1,10 +1,10 @@
-package task2.task2;
+package task2.data.collector;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Task2ApplicationTests {
+class DataCollectorApplicationTests {
 
 	@Test
 	void contextLoads() {
