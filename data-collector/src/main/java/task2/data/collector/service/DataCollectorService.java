@@ -19,6 +19,6 @@ public class DataCollectorService {
     }
 
     public void collectData(DataCollectionRequest data) {
-        kafkaTemplate.send("topic", "msg");
+        kafkaTemplate.send("rating", "hello");
     }
 }
