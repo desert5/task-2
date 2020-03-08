@@ -1,4 +1,4 @@
-package task2.rating.calculator.model;
+package task2.common.model;
 
 public class KafkaMessage {
     private String firstName;
