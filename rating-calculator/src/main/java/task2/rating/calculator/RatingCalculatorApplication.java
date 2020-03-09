@@ -25,8 +25,8 @@ public class RatingCalculatorApplication {
 
 	@Bean
 	@Autowired
-	public RedisTemplate<String, String> redisTemplate(LettuceConnectionFactory connectionFactory) {
-		RedisTemplate<String, String> redisTemplate = new RedisTemplate<>();
+	public RedisTemplate<String, Object> redisTemplate(LettuceConnectionFactory connectionFactory) {
+		RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
 		redisTemplate.setConnectionFactory(connectionFactory);
 		return redisTemplate;
 	}
