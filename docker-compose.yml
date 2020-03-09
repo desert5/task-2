@@ -1,0 +1,26 @@
+version: '2'
+services:
+  zookeeper:
+    image: zookeeper
+    restart: always
+  kafka:
+    image: "wurstmeister/kafka"
+    depends_on:
+      - zookeeper
+  redis:
+    image: redis
+  rating-calculator:
+    build: ./rating-calculator
+    depends_on:
+      - zookeeper
+      - kafka
+      - redis
+  data-collector:
+    build: ./data-collector
+    ports:
+      - "8080:8080"
+    depends_on:
+      - zookeeper
+      - kafka
+      - redis
+      - rating-calculator
