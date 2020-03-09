@@ -20,12 +20,16 @@ services:
       - kafka
   rating-calculator:
     build: ./rating-calculator
+    volumes:
+      - /etc/calc-external.yml:/usr/lib/rating-calculator/config/application.yml
     depends_on:
       - zookeeper
       - kafka
       - redis
   data-collector:
     build: ./data-collector
+    volumes:
+      - /etc/data-external.yml:/usr/lib/data-collector/config/application.yml
     ports:
       - "8080:8080"
     depends_on:

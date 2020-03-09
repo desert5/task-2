@@ -3,6 +3,7 @@ package task2.rating.calculator.service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
@@ -15,8 +16,9 @@ public class RatingCalculationService {
     private RedisTemplate<String, Object> redisTemplate;
 
     @Autowired
-    public RatingCalculationService(RedisTemplate<String, Object> redisTemplate) {
+    public RatingCalculationService(RedisTemplate<String, Object> redisTemplate, @Value("${external.property}") String externalProperty) {
         this.redisTemplate = redisTemplate;
+        logger.info("External property is " + externalProperty);
     }
 
     @KafkaListener(topics = Constants.KAFKA_TOPIC, groupId = "group_id")

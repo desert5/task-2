@@ -1,0 +1,12 @@
+# Once cloned - enable execution rights:
+chmod 755 deploy.sh send-test-message.sh mvnw
+
+# Then to build run
+./mvnw clean install
+
+# To build and deploy to Docker run
+./deploy.sh
+
+# To specify external properties at start phase change in docker-compose.yml  "/etc/calc-external.yml" or  "/etc/data-external.yml"
+ to corresponding absolute paths to external configs
+

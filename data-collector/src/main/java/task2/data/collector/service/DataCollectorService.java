@@ -18,9 +18,12 @@ public class DataCollectorService {
     private final Logger logger = LoggerFactory.getLogger(DataCollectorService.class);
 
     @Autowired
-    public DataCollectorService(@Value("${calculation.seed}") Double calculationSeed, KafkaTemplate<String, KafkaMessage> kafkaTemplate) {
+    public DataCollectorService(@Value("${calculation.seed}") Double calculationSeed,
+                                @Value("${external.property}") String externalProperty,
+                                KafkaTemplate<String, KafkaMessage> kafkaTemplate) {
         this.calculationSeed = calculationSeed;
         this.kafkaTemplate = kafkaTemplate;
+        logger.info("External property is " + externalProperty);
     }
 
     public void collectData(DataCollectionRequest data) {
