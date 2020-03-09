@@ -14,23 +14,22 @@ import task2.data.collector.model.DataCollectionRequest;
 public class DataCollectorService {
 
     private Double calculationSeed;
-    private KafkaTemplate<String, String> kafkaTemplate;
+    private KafkaTemplate<String, KafkaMessage> kafkaTemplate;
     private final Logger logger = LoggerFactory.getLogger(DataCollectorService.class);
-    private KafkaMessage message;
 
     @Autowired
-    public DataCollectorService(@Value("${calculation.seed}") Double calculationSeed, KafkaTemplate<String, String> kafkaTemplate) {
+    public DataCollectorService(@Value("${calculation.seed}") Double calculationSeed, KafkaTemplate<String, KafkaMessage> kafkaTemplate) {
         this.calculationSeed = calculationSeed;
         this.kafkaTemplate = kafkaTemplate;
     }
 
     public void collectData(DataCollectionRequest data) {
         logger.info("Received request to service: " + data.toString());
-        kafkaTemplate.send(Constants.KAFKA_TOPIC, "hello");
+        kafkaTemplate.send(Constants.KAFKA_TOPIC, new KafkaMessage(data.getFirstName(), data.getLastName(), data.getAge(), calculationSeed));
     }
 
     public void collectTestData(String data) {
         logger.info("Received test request to service: " + data);
-        kafkaTemplate.send(Constants.KAFKA_TOPIC, data);
+        kafkaTemplate.send(Constants.KAFKA_TOPIC, new KafkaMessage(data, "world", 2020, 1.0));
     }
 }
