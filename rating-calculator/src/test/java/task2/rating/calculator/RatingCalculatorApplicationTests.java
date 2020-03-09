@@ -10,8 +10,8 @@ import task2.common.Constants;
 		topics = Constants.KAFKA_TOPIC,
 		partitions = 1,
 		brokerProperties = {
-		"listeners=PLAINTEXT://localhost:8081",
-		"port=8081"})
+		"listeners=PLAINTEXT://localhost:9092",
+		"port=9092"})
 class RatingCalculatorApplicationTests {
 
 	@Test

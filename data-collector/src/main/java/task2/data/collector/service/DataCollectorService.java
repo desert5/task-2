@@ -1,5 +1,7 @@
 package task2.data.collector.service;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -13,6 +15,7 @@ public class DataCollectorService {
 
     private Double calculationSeed;
     private KafkaTemplate<String, String> kafkaTemplate;
+    private final Logger logger = LoggerFactory.getLogger(DataCollectorService.class);
     private KafkaMessage message;
 
     @Autowired
@@ -22,6 +25,7 @@ public class DataCollectorService {
     }
 
     public void collectData(DataCollectionRequest data) {
+        logger.info("Received request to service: " + data.toString());
         kafkaTemplate.send(Constants.KAFKA_TOPIC, "hello");
     }
 }

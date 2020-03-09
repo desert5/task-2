@@ -1,14 +1,17 @@
 package task2.data.collector.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
-import task2.data.collector.service.DataCollectorService;
 import task2.data.collector.model.DataCollectionRequest;
+import task2.data.collector.service.DataCollectorService;
 
 @RestController
 public class DataCollectorEndpoint {
 
+    private final Logger logger = LoggerFactory.getLogger(DataCollectorEndpoint.class);
     private DataCollectorService service;
 
     @Autowired
@@ -18,6 +21,7 @@ public class DataCollectorEndpoint {
 
     @PostMapping(value = "/collect")
     public void collectData(DataCollectionRequest request) {
+        logger.info("Received request to endpoint: " + request.toString());
         service.collectData(request);
     }
 }

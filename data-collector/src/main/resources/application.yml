@@ -2,6 +2,6 @@ calculation.seed: 0.156789
 spring:
   kafka:
     producer:
-      bootstrap-servers: localhost:8081
+      bootstrap-servers: localhost:9092
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer

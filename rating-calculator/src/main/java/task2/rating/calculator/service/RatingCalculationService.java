@@ -20,7 +20,9 @@ public class RatingCalculationService {
 
     @KafkaListener(topics = Constants.KAFKA_TOPIC, groupId = "group_id")
     public void consumeMessage(String message) {
-        logger.info(String.format("#### -> Consumed message -> %s", message));
-        redisTemplate.opsForValue().set("key", message);
+        logger.info("Received message from Kafka: " + message);
+        String key = "key";
+        redisTemplate.opsForValue().set(key, message);
+        logger.info("Redis is now containing value " + message + " for key " + key);
     }
 }
