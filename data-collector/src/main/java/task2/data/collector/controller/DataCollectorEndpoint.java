@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import task2.data.collector.model.DataCollectionRequest;
 import task2.data.collector.service.DataCollectorService;
@@ -21,7 +22,7 @@ public class DataCollectorEndpoint {
     }
 
     @PostMapping(value = "/collect")
-    public void collectData(DataCollectionRequest request) {
+    public void collectData(@RequestBody DataCollectionRequest request) {
         logger.info("Received request to endpoint: " + request.toString());
         service.collectData(request);
     }
