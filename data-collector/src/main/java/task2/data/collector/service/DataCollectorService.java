@@ -28,4 +28,9 @@ public class DataCollectorService {
         logger.info("Received request to service: " + data.toString());
         kafkaTemplate.send(Constants.KAFKA_TOPIC, "hello");
     }
+
+    public void collectTestData(String data) {
+        logger.info("Received test request to service: " + data);
+        kafkaTemplate.send(Constants.KAFKA_TOPIC, data);
+    }
 }
