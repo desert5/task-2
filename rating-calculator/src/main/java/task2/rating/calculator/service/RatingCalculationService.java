@@ -16,7 +16,7 @@ public class RatingCalculationService {
     private RedisTemplate<String, Object> redisTemplate;
 
     @Autowired
-    public RatingCalculationService(RedisTemplate<String, Object> redisTemplate, @Value("${external.property}") String externalProperty) {
+    public RatingCalculationService(RedisTemplate<String, Object> redisTemplate, @Value("${external.property:none}") String externalProperty) {
         this.redisTemplate = redisTemplate;
         logger.info("External property is " + externalProperty);
     }
