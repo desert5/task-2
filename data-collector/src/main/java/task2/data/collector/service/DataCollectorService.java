@@ -19,7 +19,7 @@ public class DataCollectorService {
 
     @Autowired
     public DataCollectorService(@Value("${calculation.seed}") Double calculationSeed,
-                                @Value("${external.property}") String externalProperty,
+                                @Value("${external.property:none}") String externalProperty,
                                 KafkaTemplate<String, KafkaMessage> kafkaTemplate) {
         this.calculationSeed = calculationSeed;
         this.kafkaTemplate = kafkaTemplate;
