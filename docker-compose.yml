@@ -21,7 +21,7 @@ services:
   rating-calculator:
     build: ./rating-calculator
     volumes:
-      - /etc/calc-external.yml:/usr/lib/rating-calculator/config/application.yml
+      - ./calc-external.yml:/usr/lib/rating-calculator/config/application.yml
     depends_on:
       - zookeeper
       - kafka
