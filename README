@@ -7,6 +7,6 @@ chmod 755 deploy.sh send-test-message.sh mvnw
 # To build and deploy to Docker run
 ./deploy.sh
 
-# To specify external properties at start phase change in docker-compose.yml  "/etc/calc-external.yml" or  "/etc/data-external.yml"
- to corresponding absolute paths to external configs
+# To specify external properties at start phase change in docker-compose.yml  "./calc-external.yml" or  "/etc/data-external.yml"
+ to corresponding paths to external configs. On application startup each application will output external.property property value for externalized configuration demonstration. (External property is ..)
 
